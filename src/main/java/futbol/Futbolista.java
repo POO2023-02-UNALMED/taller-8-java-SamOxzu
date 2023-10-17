@@ -10,26 +10,19 @@ public abstract class Futbolista implements Comparable<Futbolista>{
 	}
 	
 	public Futbolista(String nombre, int edad, String posicion) {
-		this.nombre = nombre;
-		this.edad = edad;
+		this.setNombre(nombre);
+		this.setEdad(edad);
 		this.posicion = posicion;
 	}
 	
-	@Override
 	public String toString() {
 		return "El futbolista "+nombre+" tiene "+edad+", y juega de "+posicion;
 	}
 	
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(Futbolista f) {
+        if (this == f) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        Futbolista that = (Futbolista) obj;
-        return edad == that.edad && nombre.equals(that.nombre) && posicion.equals(that.posicion);
     }
     
     public abstract boolean jugarConLasManos();
