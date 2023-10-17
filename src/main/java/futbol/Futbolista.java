@@ -33,7 +33,7 @@ public class Futbolista implements Comparable<Object> {
     }
 
     @Override
-    public boolean equals(Futbolista obj) {
+    public boolean equals(Object obj) {
         if(this == obj) {
         	return true;
         }
