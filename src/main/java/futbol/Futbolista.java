@@ -1,51 +1,45 @@
 package futbol;
 
-public abstract class Futbolista implements Comparable<Futbolista> {
+public class Futbolista implements Comparable<Futbolista> {
     private String nombre;
     private int edad;
-    private final String posicion;
+    private String posicion;
+
+    public Futbolista(String nombre, int edad, String posicion) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.posicion = posicion;
+    }
 
     public Futbolista() {
         this("Maradona", 30, "delantero");
     }
 
-    public Futbolista(String nombre, int edad, String posicion) {
-        this.setNombre(nombre);
-        this.setEdad(edad);
-        this.posicion = posicion;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        Futbolista otro = (Futbolista) obj;
-        return this.nombre.equals(otro.nombre) && this.edad == otro.edad && this.posicion.equals(otro.posicion);
-    }
-
-    public abstract boolean jugarConLasManos();
-
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public int getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
     public String getPosicion() {
         return posicion;
+    }
+
+    public boolean equals(Futbolista f) {
+        return this == f || (f != null && getClass() == f.getClass() && edad == f.edad && Objects.equals(nombre, f.nombre) && Objects.equals(posicion, f.posicion));
+    }
+
+    public abstract boolean jugarConLasManos();
+
+    @Override
+    public int compareTo(Futbolista otroFutbolista) {
+        return Math.abs(this.edad - otroFutbolista.edad);
+    }
+
+    @Override
+    public String toString() {
+        return "El futbolista " + nombre + " tiene " + edad + " años, y juega de " + posicion + ".";
     }
 }
