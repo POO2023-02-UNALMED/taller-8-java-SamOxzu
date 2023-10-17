@@ -1,62 +1,60 @@
 package futbol;
 
-public abstract class Futbolista implements Comparable<Futbolista>{
-	private String nombre;
-	private int edad;
-	private final String posicion;
-	
-	public Futbolista(){
-		this("Maradona",30,"delantero");
-	}
-	
-	public Futbolista(String nombre, int edad, String posicion) {
-		this.setNombre(nombre);
-		this.setEdad(edad);
-		this.posicion = posicion;
-	}
-	
-	public String toString() {
-		return "El futbolista "+nombre+" tiene "+edad+", y juega de "+posicion;
-	}
-	
-    public boolean equals(Futbolista f) {
-        if (this == f) {
-            return true;
-        }
-        else {
-        	return false;
-        }
-    }
-    
-    public abstract boolean jugarConLasManos();
-    
-    public String getNombre() {
-        return nombre;
+public class Futbolista implements Comparable<Futbolista> {
+    private String nombre;
+    private int edad;
+    private String posicion;
+
+    public Futbolista(String nombre, int edad, String posicion) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.posicion = posicion;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public Futbolista() {
+        this("Maradona", 30, "delantero");
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public int getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
     public String getPosicion() {
         return posicion;
     }
-    
-    public int compareTo(Futbolista otraPersona) {
-        if (this.getEdad() > ((Futbolista)otraPersona).getEdad()) {
-            return 1;
-        } else if (this.getEdad() < ((Futbolista)otraPersona).getEdad()) {
-            return -1;
-        } else {
-            return 0;
+
+    @Override
+    public int compareTo(Futbolista otroFutbolista) {
+        return this.nombre.compareTo(otroFutbolista.nombre);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Futbolista otroFutbolista = (Futbolista) obj;
+        return nombre.equals(otroFutbolista.nombre) && edad == otroFutbolista.edad && posicion.equals(otroFutbolista.posicion);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, edad, posicion);
+    }
+
+    @Override
+    public String toString() {
+        return "El futbolista " + nombre + " tiene " + edad + ", y juega de " + posicion;
+    }
+
+    public boolean jugarConLasManos() {
+        return false;
     }
 }
