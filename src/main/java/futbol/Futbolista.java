@@ -1,4 +1,5 @@
 package futbol;
+import java.util.Objects;
 
 public class Futbolista implements Comparable<Futbolista> {
     private String nombre;
