@@ -33,9 +33,13 @@ public class Futbolista implements Comparable<Object> {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        Futbolista otroFutbolista = (Futbolista) obj;
-        return nombre.equals(otroFutbolista.nombre) && edad == otroFutbolista.edad && posicion.equals(otroFutbolista.posicion);
+    public boolean equals(Futbolista obj) {
+        if(this == obj) {
+        	return true;
+        }
+        else {
+        	return false;
+        }
     }
 
     @Override
