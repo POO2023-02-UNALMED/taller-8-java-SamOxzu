@@ -50,13 +50,14 @@ public abstract class Futbolista implements Comparable<Futbolista>{
         return posicion;
     }
     
-	@Override
-	public int compareTo(Futbolista o) {
-		if (this == o) {
+    @Override
+    public int compareTo(Futbolista otraPersona) {
+        if (this.getEdad() > otraPersona.getEdad()) {
             return 1;
+        } else if (this.getEdad() < otraPersona.getEdad()) {
+            return -1;
+        } else {
+            return 0;
         }
-        else {
-        	return 0;
-        }
-	}
+    }
 }
