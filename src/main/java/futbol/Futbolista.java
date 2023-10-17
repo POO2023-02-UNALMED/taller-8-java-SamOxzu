@@ -28,8 +28,8 @@ public class Futbolista implements Comparable<Object> {
     }
 
     @Override
-    public int compareTo(Futbolista otroFutbolista) {
-        return this.nombre.compareTo(otroFutbolista.nombre);
+    public int compareTo(Object otroFutbolista) {
+        return this.nombre.compareTo(((Futbolista)otroFutbolista).getNombre());
     }
 
     @Override
