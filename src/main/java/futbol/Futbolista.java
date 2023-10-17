@@ -52,11 +52,11 @@ public abstract class Futbolista implements Comparable<Futbolista>{
     
 	@Override
 	public int compareTo(Futbolista o) {
-		if (this == f) {
-            return true;
+		if (this == o) {
+            return 1;
         }
         else {
-        	return false;
+        	return 0;
         }
 	}
 }
