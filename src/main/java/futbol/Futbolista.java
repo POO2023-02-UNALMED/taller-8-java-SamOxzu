@@ -1,5 +1,4 @@
 package futbol;
-import java.util.Objects;
 
 public class Futbolista implements Comparable<Futbolista> {
     private String nombre;
@@ -43,11 +42,6 @@ public class Futbolista implements Comparable<Futbolista> {
         }
         Futbolista otroFutbolista = (Futbolista) obj;
         return nombre.equals(otroFutbolista.nombre) && edad == otroFutbolista.edad && posicion.equals(otroFutbolista.posicion);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nombre, edad, posicion);
     }
 
     @Override
