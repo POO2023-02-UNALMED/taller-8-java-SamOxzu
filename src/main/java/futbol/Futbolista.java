@@ -49,15 +49,4 @@ public abstract class Futbolista implements Comparable<Futbolista>{
     public String getPosicion() {
         return posicion;
     }
-    
-	@Override
-	public int compareTo(Futbolista o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }
